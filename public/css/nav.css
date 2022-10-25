@@ -1,3 +1,10 @@
-.img-nav {
-    width: 10rem;
+.btnAdd {
+    background-color: #00656F;
+    color: white !important;
+    border-radius: 10px;
+}
+
+.bgInputSearch{
+    background-color: #00656F;
+    color: white !important;
 }
