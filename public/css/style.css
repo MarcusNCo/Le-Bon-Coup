@@ -1,0 +1,8 @@
+.jumbotron{
+    display: flex;
+    justify-content: center;
+}
+
+.article{
+    margin: 3%;
+}
