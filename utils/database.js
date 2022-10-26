@@ -6,7 +6,7 @@ const mysqlConnection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'le-bon-coup',
+  database: 'leboncoup',
   multipleStatements: true,
 })
 
@@ -20,6 +20,7 @@ exports.dbQuery = (sql, callback) => {
         if (err) {
           throw new Error('La requête a echoué !')
         } else {
+          console.log(rows)
           return callback(rows)
         }
       })
