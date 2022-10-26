@@ -1,0 +1,51 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+
+
+<form action="/membersSignUp" method="POST" class="FormConnect d-flex flex-column align-items-center">
+    <div class="cardFormConnect d-flex flex-column align-items-center card-body">
+    <!-- lastname input -->
+    <div class="inputFormConnect form-outline mb-3">
+    <label class="form-label" for="form2Example1">Nom</label>
+        <input name="lastname" type="text" id="form2Example1" class="form-control" />
+    </div>
+
+    <!-- Firstname input -->
+    <div class="inputFormConnect form-outline mb-3">
+        <label class="form-label" for="form2Example1">Prénom</label>
+      <input name="firstname" type="text" id="form2Example1" class="form-control" />
+    </div>
+
+    <!-- phone input -->
+    <div class="inputFormConnect form-outline mb-3">
+        <label class="form-label" for="form2Example1">Telephone</label>
+      <input name="phone" type="number" id="form2Example1" class="form-control" />
+    </div>
+    <!-- Adress input -->
+    <div class="inputFormConnect form-outline mb-3">
+        <label class="form-label" for="form2Example1">Adresse</label>
+      <input name="adress" type="text" id="form2Example1" class="form-control" />
+    </div>
+
+    <!-- Email input -->
+    <div class="inputFormConnect form-outline mb-3">
+        <label class="form-label" for="form2Example1">Email</label>
+      <input name="mail" type="text" id="form2Example1" class="form-control" />
+    </div>
+  
+    <!-- Password input -->
+    <div class="inputFormConnect form-outline mb-3">
+        <label class="form-label" for="form2Example2">Mot de passe</label>
+      <input name="password" type="password" id="form2Example2" class="form-control" />
+    </div>
+  
+  
+    <!-- Submit button -->
+    <button type="submit" class="btnFormConnect btn btn-block mb-3">S'identifier</button>
+
+</div>
+</form>
+
+  <%- include('./partials/footer'); %>

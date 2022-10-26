@@ -7,7 +7,6 @@ button.btnFormConnect {
 .FormConnect {
     margin: 50px;
     
-   
 }
 
 .inputFormConnect{
@@ -19,4 +18,10 @@ button.btnFormConnect {
     width:30%;
     padding:10px;
     border-radius: 5px;
+}
+
+.alertConnect{
+    font-size: 1.5rem;
+    align-self: center;
+    width:40%;
 }

@@ -17,6 +17,10 @@ routes.get('/formConnect', (req, res) => {
   res.render('formConnect', { message: '' })
 })
 
-routes.post('/members', validateFormConnect(), validate, connectUser)
+routes.post('/membersConnect', validateFormConnect(), validate, connectUser)
+
+routes.get('/membersSignUp', (req, res) => {
+  res.render('formSignUp')
+})
 
 module.exports = routes
