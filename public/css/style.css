@@ -1,0 +1,38 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar input[type=search]::placeholder {
+    color: white !important;
+}
+
+.btnSS {
+    background-color: #00656F; 
+    color: white;
+}
+
+.containerAddProductSS {
+    height: calc(100vh - 194px) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    margin-top: auto;
+}
+
+@media (min-width: 768px) {
+    .containerAddProductSS {
+        height: calc(100vh - 154px) !important;
+    }
+
+    .formAddProductSS {
+        width: unset !important;
+        max-width: 500px;
+    }
+}

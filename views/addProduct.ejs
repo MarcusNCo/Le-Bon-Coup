@@ -1,0 +1,71 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+<main>
+    <div class="container-fluid containerAddProductSS">
+        <div class="container formAddProductSS">
+            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Nom du produit</label>
+                    <input type="text" class="form-control" id="validationCustom01" name="productName" required>
+                    <div class="invalid-feedback">Entrez un nom de produit valide.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Catégorie</label>
+                    <select class="form-select" name="productCateg" aria-label="Default select example" required>
+                        <option value="" selected>Choisir la catégorie de l'objet</option>
+                        <option value="1">Immobilier</option>
+                        <option value="2">Véhicules</option>
+                        <option value="3">Vacances</option>
+                        <option value="4">Emploi</option>
+                        <option value="5">Mode</option>
+                        <option value="6">Maison</option>
+                        <option value="7">Multimédia</option>
+                        <option value="8">Loisirs</option>
+                        <option value="9">Matériel professionnel</option>
+                        <option value="10">Autres</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Etat de l'objet</label>
+                    <select class="form-select" name="productState" aria-label="Default select example" required>
+                        <option value="" selected>Choisir l'état de l'objet</option>
+                        <option value="1">Neuf</option>
+                        <option value="2">Comme neuf</option>
+                        <option value="3">Bon état</option>
+                        <option value="4">satisfaisant</option>
+                        <option value="5">Mauvais état</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Choisir une image</label>
+                    <input type="file" class="form-control" name="productImage" placeholder="" aria-describedby="fileHelpId" accept="image/*" required>
+                    <div id="fileHelpId" class="form-text">Seulement les fichiers en .jpg ou .png sont acceptés. Limite de taille : 2Mo.</div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" name="productDesc" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPrice" class="form-label">Prix</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="productPrice" aria-label="Amount (to the nearest dollar)" required>
+                        <span class="input-group-text">€</span>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex justify-content-center">
+                    <button type="submit" class="btn btnSS" name="addProduct">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/footer'); %>
