@@ -3,9 +3,13 @@
 <%- include('./partials/header'); %>
 
 <main>
-    <div class="jumbotron">
-        <p><%=  message %></p>
+<section class="home">
+    <div class="listProduct">
+        <% products.forEach(function(data) { %>
+            <p><%=data.price%></p>
+        <% }) %>
     </div>
+</section>
 </main>
 
 <%- include('./partials/footer'); %>
