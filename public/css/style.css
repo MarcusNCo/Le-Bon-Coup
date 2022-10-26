@@ -28,7 +28,7 @@ footer {
 
 @media (min-width: 768px) {
     .containerAddProductSS {
-        height: calc(100vh - 154px) !important;
+        height: calc(100vh - 210px) !important;
     }
 
     .formAddProductSS {

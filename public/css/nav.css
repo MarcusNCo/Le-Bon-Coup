@@ -4,7 +4,7 @@
     border-radius: 10px;
 }
 
-.bgInputSearch, .form-control{
+.bgInputSearch, .navbar .form-control{
     background-color: #00656F;
     color: white imo !important;
 }
