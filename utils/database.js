@@ -1,29 +1,28 @@
-const hostDb = 'localhost'
-const userDb = 'root'
-const pwdDb = ''
+const mysql = require('mysql')
 
-export var connectDB = () => {
-  var mysql = require('mysql')
+// function pour se connecter à la base de données
 
-  var con = mysql.createConnection({
-    host: hostDb,
-    user: userDb,
-    password: pwdDb,
-  })
+const mysqlConnection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'le-bon-coup',
+  multipleStatements: true,
+})
 
-  con.connect(function (err) {
-    if (err) throw err
-    console.log('Connected!')
-  })
-}
-
-export var querryDB = (sql) => {
-  con.connect(function (err) {
-    if (err) throw err
-    console.log('Connected!')
-    con.query(sql, function (err, result) {
-      if (err) throw err
-      console.log('Result: ' + result)
-    })
+exports.dbQuery = (sql, callback) => {
+  mysqlConnection.connect((err) => {
+    if (err) {
+      throw new Error('La Connexion a echoué !')
+    } else {
+      console.log('Connexion réussie !')
+      mysqlConnection.query(sql, (err, rows) => {
+        if (err) {
+          throw new Error('La requête a echoué !')
+        } else {
+          return callback(rows)
+        }
+      })
+    }
   })
 }
