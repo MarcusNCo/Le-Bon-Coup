@@ -1,11 +1,11 @@
-const {dbQuery} = require('../utils/database')
+const {sequelize} = require('../utils/database')
+
 
 exports.displayProduct = (req,res)=>{ 
         const query = 'SELECT * FROM products';
         try {
-            const data = dbQuery(query, data =>{
-                res.render('index',{products:data})
-            });
+            const data =  sequelize.query(query);
+            data.then(data=>{res.render('index', {products:data[0]})})
         } catch (error) {
             console.log(error.message);
         }

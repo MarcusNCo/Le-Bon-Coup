@@ -1,29 +1,6 @@
-const mysql = require('mysql')
+const { Sequelize } = require('sequelize')
 
-// function pour se connecter à la base de données
-
-const mysqlConnection = mysql.createConnection({
+exports.sequelize = new Sequelize('leboncoup', 'root', '', {
   host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'leboncoup',
-  multipleStatements: true,
+  dialect: 'mysql',
 })
-
-exports.dbQuery = (sql, callback) => {
-  mysqlConnection.connect((err) => {
-    if (err) {
-      throw new Error('La Connexion a echoué !')
-    } else {
-      console.log('Connexion réussie !')
-      mysqlConnection.query(sql, (err, rows) => {
-        if (err) {
-          throw new Error('La requête a echoué !')
-        } else {
-          console.log(rows)
-          return callback(rows)
-        }
-      })
-    }
-  })
-}
