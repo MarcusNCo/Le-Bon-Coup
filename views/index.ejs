@@ -3,13 +3,30 @@
 <%- include('./partials/header'); %>
 
 <main>
-<section class="home">
-    <div class="listProduct">
-        <% products.forEach(function(data) { %>
-            <p><%=data.price%></p>
-        <% }) %>
-    </div>
-</section>
+    <section class="home">
+        <div class="listProduct">
+            <div class="row d-flex m-2 mt-4">
+                <% products.forEach(function(data) { %>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img class="w-100" src="<%=data.img_product%>" alt="Image du produit">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%=data.title%></h5>
+                                <p class="card-text"><%=data.place%></p>
+                                <p class="card-text">Prix: <%=data.price%>€</p>
+                                <p class="card-text">Date de publication: <%=data.advert_date%></p>
+                                <p class="card-text">Description: <%=data.description%></p>
+                                <p class="card-text">Etat du produit: <%=data.state%></p>
+                                <a href="#" class="btn btn-primary">Voir l'annonce</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </section>
 </main>
 
 <%- include('./partials/footer'); %>
