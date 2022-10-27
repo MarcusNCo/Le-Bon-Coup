@@ -5,29 +5,36 @@
 <main>
     <section class="oneProduct">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class=" mx-auto card mt-5 shadow p-3 mb-5 bg-body rounded">
+            <div class="row ">
+                <div class="col ">
+                    <div class=" mx-auto card mt-5 shadow p-3 mb-5 bg-body rounded borderCard">
                         <div class="card-body text-center">
                             <img class="w-100" src="<%=product.img_product%>" alt="Image du produit">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><%=product.title%></h5>
-                            <p class="card-text"><%=product.place%></p>
-                            <p class="card-text">Prix: <%=product.price%>€</p>
-                            <p class="card-text">Date de publication: <%=product.advert_date%></p>
-                            <p class="card-text">Description: <%=product.description%></p>
-                            <p class="card-text">Etat du produit: <%=product.state%></p>
+                            <h5 class="card-title text-center"><%=product.title%></h5>
+                            <p class="card-text"> <span class="cardStyle">Lieu:</span> <%=product.place%></p>
+                            <p class="card-text"> <span class="cardStyle">Prix:</span> <%=product.price%>€</p>
+                            <p class="card-text"> <span class="cardStyle">Date de publication:</span>
+                                <%=product.advert_date%></p>
+                            <p class="card-text"> <span class="cardStyle">Description:</span> <%=product.description%>
+                            </p>
+                            <p class="card-text"> <span class="cardStyle">Etat du produit:</span> <%=product.state%></p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card mt-5" style="width: 18rem;">
-                        <div class="card-body">
-                            <a href="/profil/<%=product.id_members%>"><%=product.lastname%></a>
-                            <a href="" class="btn btnBuy">Acheter</a>
-                            <a href="" class="btn btnSendMsg">Message</a>
+                    <div class="card mt-5 borderCard sendCard">
+                        <div class="card-body sendMsg">
+                            <div>
+                                <div><a href="" class="btn btnBuy">Acheter</a></div>
+                                <div><a href="" class="btn btnSendMsg">Message</a></div>
+                            </div>
                         </div>
+                    </div>
+
+                </div>
+                <div class="sellerSentence text-center">
+                    <div> 
+                        <p>Voir le profil du vendeur:<a id="seller" href="/profil/<%=product.id_members%>"> <strong><%=product.lastname%></strong></a></p>
                     </div>
                 </div>
             </div>
