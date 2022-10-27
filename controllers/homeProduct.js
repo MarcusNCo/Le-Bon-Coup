@@ -24,16 +24,15 @@ exports.getOneById = (req,res)=>{
 }
 
 exports.getUserById = (req,res)=>{
-    const query= `SELECT * FROM members JOIN products ON members.id = products.id_members WHERE members.id = ${req.params.id};`;
+    const query= `SELECT * FROM members JOIN products ON products.id_members = members.id WHERE members.id = ${req.params.id};`;
     try {
         const data = sequelize.query(query, {type: QueryTypes.SELECT});
         data.then(data=>{
             console.log(data);
-            res.render('profilSeller', {member: data[0]})});
+            res.render('profilSeller', {member: data})});
     } catch (error) {
         console.log(error.message);
     }
-
 }
 
 
