@@ -28,4 +28,8 @@ routes.get('/formSignUp', (req, res) => {
 
 routes.post('/membersSignUp', validateFormSignUp(), validate, signUpUser)
 
+routes.get(`/product/:id`, productController.getOneById)
+
+routes.get(`/profil/:id`, productController.getUserById)
+
 module.exports = routes
