@@ -70,7 +70,14 @@ exports.saveProductToDB = (req, res) => {
       res.redirect('/');
     } 
     else {
-      console.log('Ajout produit nok');
+      res.render('addProduct', {
+        errorTitle: 'Veuillez entrer un titre valide',
+        errorCategory: 'Veuillez entrer une catégorie valide',
+        errorState: 'Veuillez entrer un état valide',
+        errorDescription: 'Veuillez entrer une description valide',
+        errorPlace: 'Veuillez entrer un lieu valide',
+        errorPrice: 'Veuillez entrer un prix valide',
+      })
     }
   })
 }
