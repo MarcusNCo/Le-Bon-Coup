@@ -1,7 +1,10 @@
 const { Router } = require('express')
 const productController = require('../controllers/homeProduct')
-const { connectUser } = require('../controllers/userController.js')
-const { validate } = require('../validationForm/validationFormConnect.js')
+const { connectUser, signUpUser } = require('../controllers/userController.js')
+const {
+  validate,
+  validateFormSignUp,
+} = require('../validationForm/validationFormConnect.js')
 const {
   validateFormConnect,
 } = require('../validationForm/validationFormConnect.js')
@@ -19,8 +22,10 @@ routes.get('/formConnect', (req, res) => {
 
 routes.post('/membersConnect', validateFormConnect(), validate, connectUser)
 
-routes.get('/membersSignUp', (req, res) => {
+routes.get('/formSignUp', (req, res) => {
   res.render('formSignUp')
 })
+
+routes.post('/membersSignUp', validateFormSignUp(), validate, signUpUser)
 
 module.exports = routes

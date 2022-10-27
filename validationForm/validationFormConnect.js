@@ -17,6 +17,17 @@ exports.validate = (req, res, next) => {
     next()
   }
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() })
+    req.errorsFromValidation = errors.array()
+    next()
   }
+}
+
+exports.validateFormSignUp = () => {
+  return [
+    check('mail').isEmail().withMessage('doit etre un email valide'),
+
+    check('password')
+      .isLength({ min: 5 })
+      .withMessage('doit contenir au moins 5 caractères'),
+  ]
 }
