@@ -1,6 +1,6 @@
 const {Router} =  require("express");
 const productController = require("../controllers/homeProduct")
-const {uploadFile, validateProductForm, validate, saveProductToDB} = require("../controllers/productController")
+const {uploadFile, validateProductForm, validateErrors, saveProductToDB} = require("../controllers/productController")
 const routes = new Router();
 
 const {

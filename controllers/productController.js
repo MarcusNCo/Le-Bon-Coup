@@ -29,7 +29,7 @@ exports.validateProductForm = () => {
   ]
 }
 
-exports.validate = (req, res, next) => {
+exports.validateErrors = (req, res, next) => {
   const errors = validationResult(req)
   if (errors.isEmpty()) {
     next()
