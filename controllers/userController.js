@@ -5,7 +5,7 @@ const { Sequelize } = require('sequelize')
 exports.connectUser = (req, res) => {
   console.log(req.errorsFromValidation)
   localStorage = new LocalStorage('./scratch')
-  const sql = `SELECT mail, password FROM members WHERE mail = '${req.body.mail}';`
+  const sql = `SELECT mail, id, password FROM members WHERE mail = '${req.body.mail}';`
   const result = sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT })
   result.then((data) => {
     if (data.length != 0) {
@@ -14,7 +14,7 @@ exports.connectUser = (req, res) => {
         data[0].mail == req.body.mail
       ) {
         console.log('coucou ca marche')
-        localStorage.setItem('connected', JSON.stringify(data[0]))
+        localStorage.setItem('connected', JSON.stringify(data[0].id))
 
         res.redirect('/')
       } else {
@@ -48,5 +48,17 @@ exports.signUpUser = (req, res) => {
         errorSignUpMail: 'Veuillez entrer un mail valide',
       })
     }
+  })
+}
+
+exports.favorite = (req, res) => {
+  localStorage = new LocalStorage('./scratch')
+  const userId = localStorage.getItem('connected')
+  console.log(userId)
+  const sql = `INSERT INTO favorites (member_id, product_id) VALUES ('${userId}', '${req.body.product_id}')`
+  const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
+
+  result.then((data) => {
+    res.redirect('/')
   })
 }

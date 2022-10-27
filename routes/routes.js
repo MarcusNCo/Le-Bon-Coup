@@ -1,6 +1,10 @@
 const { Router } = require('express')
 const productController = require('../controllers/homeProduct')
-const { connectUser, signUpUser } = require('../controllers/userController.js')
+const {
+  connectUser,
+  signUpUser,
+  favorite,
+} = require('../controllers/userController.js')
 const {
   validate,
   validateFormSignUp,
@@ -31,5 +35,11 @@ routes.post('/membersSignUp', validateFormSignUp(), validate, signUpUser)
 routes.get(`/product/:id`, productController.getOneById)
 
 routes.get(`/profil/:id`, productController.getUserById)
+
+routes.get(`/favorite`, (req, res) => {
+  res.render('favorites')
+})
+
+routes.post('/', favorite)
 
 module.exports = routes
