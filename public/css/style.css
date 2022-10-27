@@ -16,10 +16,12 @@ body {
 }
 
 .containerAddProductSS {
-    height: calc(100vh - 194px) !important;
+    min-height: calc(100vh - 194px);
+    max-height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0 20px 0;
 }
 
 footer {
@@ -28,7 +30,9 @@ footer {
 
 @media (min-width: 768px) {
     .containerAddProductSS {
-        height: calc(100vh - 210px) !important;
+        min-height: calc(100vh - 210px);
+        max-height: fit-content;
+        /* margin: unset; */
     }
 
     .formAddProductSS {

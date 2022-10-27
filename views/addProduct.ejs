@@ -5,15 +5,15 @@
 <main>
     <div class="container-fluid containerAddProductSS">
         <div class="container formAddProductSS">
-            <form method="post" enctype="multipart/form-data" novalidate>
+            <form action="/ajout_produit" method="POST" enctype="multipart/form-data" novalidate>
                 <div class="mb-3">
                     <label for="validationCustom01" class="form-label">Nom du produit</label>
-                    <input type="text" class="form-control" id="validationCustom01" name="productName" required>
+                    <input type="text" class="form-control" id="validationCustom01" name="title" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="" class="form-label">Catégorie</label>
-                    <select class="form-select" name="productCateg" aria-label="Default select example" required>
+                    <select class="form-select" name="category" aria-label="Default select example" required>
                         <option value="" selected>Choisir la catégorie de l'objet</option>
                         <option value="1">Immobilier</option>
                         <option value="2">Véhicules</option>
@@ -30,7 +30,7 @@
 
                 <div class="mb-3">
                     <label for="" class="form-label">Etat de l'objet</label>
-                    <select class="form-select" name="productState" aria-label="Default select example" required>
+                    <select class="form-select" name="state" aria-label="Default select example" required>
                         <option value="" selected>Choisir l'état de l'objet</option>
                         <option value="1">Neuf</option>
                         <option value="2">Comme neuf</option>
@@ -42,25 +42,30 @@
 
                 <div class="mb-3">
                     <label for="" class="form-label">Choisir une image</label>
-                    <input type="file" class="form-control" name="productImage" placeholder="" aria-describedby="fileHelpId" accept="image/*" required>
+                    <input type="file" class="form-control" name="image" placeholder="" aria-describedby="fileHelpId" accept="image/*" required>
                     <div id="fileHelpId" class="form-text">Seulement les fichiers en .jpg ou .png sont acceptés. Limite de taille : 2Mo.</div>
                 </div>
         
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                    <textarea class="form-control" name="productDesc" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="validationCustom02" class="form-label">Lieux de vente (Amiens, Somme, ... )</label>
+                    <input type="text" class="form-control" id="validationCustom02" name="place" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="exampleInputPrice" class="form-label">Prix</label>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" name="productPrice" aria-label="Amount (to the nearest dollar)" required>
+                        <input type="number" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" min="0" required>
                         <span class="input-group-text">€</span>
                     </div>
                 </div>
 
                 <div class="mb-3 d-flex justify-content-center">
-                    <button type="submit" class="btn btnSS" name="addBtnProduct">Ajouter</button>
+                    <button type="submit" class="btn btnSS">Ajouter</button>
                 </div>
             </form>
         </div>

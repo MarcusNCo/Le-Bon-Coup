@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "bootstrap": "^5.2.2",
     "date-and-time": "^2.4.1",
     "ejs": "^3.1.8",
@@ -20,6 +21,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "node-localstorage": "^2.2.1",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
