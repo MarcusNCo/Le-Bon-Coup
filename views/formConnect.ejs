@@ -1,0 +1,48 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+
+
+<form action="/membersConnect" method="POST" class="was-validated FormConnect d-flex flex-column align-items-center">
+    <div class="cardFormConnect d-flex flex-column align-items-center card-body">
+    <!-- Email input -->
+<div class="inputFormConnect form-outline mb-4">
+        <label class="form-label" for="validationServer03">Email</label>
+      <input name="mail" type="text" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+      <div class="invalid-feedback">
+        <%if(typeof errorConnectMail != 'undefined') {%>
+        <%= errorConnectMail%>
+        <%}%>
+      </div>
+    </div>
+  
+    <!-- Password input -->
+    <div class="inputFormConnect form-outline mb-4">
+        <label class="form-label" for="form2Example2">Mot de passe</label>
+      <input name="password" type="password" class="form-control " id="validationServer03" aria-describedby="validationServer03Feedback"  pattern="[A-Za-z]{5,}" required/>
+      <div class="invalid-feedback">
+        <%if(typeof errorConnectPassword != 'undefined') {%>
+          <%= errorConnectPassword%>
+          <%}%>
+      </div>
+    </div>
+  
+    <div class="row mb-4">
+      <div class="col">
+        <!-- forgot password -->
+        <a href="#!">Mot de passe oublié?</a>
+      </div>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btnFormConnect btn btn-block mb-4">S'identifier</button>
+  
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Pas encore membre? <a href="/formSignUp">S'enregistrer</a></p>
+    </div>
+</div>
+</form>
+
+  <%- include('./partials/footer'); %>
