@@ -40,23 +40,11 @@ exports.validateErrors = (req, res, next) => {
 }
 
 exports.saveProductToDB = (req, res) => {
-  let memberId = 0;
+  // let memberId = 0;
   let sql = "";
   let result = "";
-
-  const memberMail = JSON.parse(localStorage.getItem('myFirstKey'));
-
-  sql = `SELECT id FROM members WHERE mail = '${memberMail[0]}';`
-  result = sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT })
-  result.then((data) => {
-    if (data.length != 0) {
-      memberId = data[0].id;
-    } else {
-      res.render('addProduct', {
-        error: "Problème de récupération de l'id de l'utilisateur",
-      })
-    }
-  })
+  localStorage = new LocalStorage('./scratch');
+  const memberId = JSON.parse(localStorage.getItem('connected'));
 
   // Move file in right directory 
   var fs = require('fs');
