@@ -44,3 +44,23 @@ footer {
 .imgProduct {
     width: 15rem;
 }
+
+.btnBuy {
+    background-color: #00656F;
+    color: white;
+}
+
+.btnBuy:hover{
+    border: 1px solid black;
+    color: #00656F;
+}
+
+.btnSendMsg {
+    background-color: black;
+    color: white;
+}
+
+.btnSendMsg:hover {
+    border: 1px solid black;
+    color: #00656F;
+}

@@ -1,0 +1,38 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+<main>
+    <section class="oneProduct">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class=" mx-auto card mt-5 shadow p-3 mb-5 bg-body rounded">
+                        <div class="card-body text-center">
+                            <img class="w-100" src="<%=product.img_product%>" alt="Image du produit">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%=product.title%></h5>
+                            <p class="card-text"><%=product.place%></p>
+                            <p class="card-text">Prix: <%=product.price%>€</p>
+                            <p class="card-text">Date de publication: <%=product.advert_date%></p>
+                            <p class="card-text">Description: <%=product.description%></p>
+                            <p class="card-text">Etat du produit: <%=product.state%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mt-5" style="width: 18rem;">
+                        <div class="card-body">
+                            <a href="/profil/<%=product.id_members%>"><%=product.lastname%></a>
+                            <a href="" class="btn btnBuy">Acheter</a>
+                            <a href="" class="btn btnSendMsg">Message</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/footer'); %>

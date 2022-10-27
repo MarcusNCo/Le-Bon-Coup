@@ -10,5 +10,8 @@ routes.get("/ajout_produit", (req, res) => {
 })
 
 routes.post("/ajout_produit", uploadFile, validateProductForm(), validate, saveProductToDB);
+routes.get(`/product/:id`, productController.getOneById);
+
+routes.get(`/profil/:id`, productController.getUserById);
 
 module.exports = routes;

@@ -1,0 +1,39 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+<%  let formatedDate = new Date(member[0].inscription_date)
+    let options = {weekday: "long", year: "numeric", month: "long", day: "2-digit"};
+    formatedDate = formatedDate.toLocaleDateString("fr-FR", options)
+%>
+
+<h2>Profil</h2>
+<p><%= member[0].lastname %></p>
+<p><%= formatedDate %></p>
+<p><%= member[0].department %></p>
+
+<h3><%=member.length%> annonces</h3>
+
+<% for (let i = 0; i < member.length; i++) { %>
+    
+    <div class="card">
+        <div class="card-body text-center">
+            <img class="w-100" src="<%=member.img_product%>" alt="Image du produit">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><%=member.title%></h5>
+            <p class="card-text"><%=member.place%></p>
+            <p class="card-text">Vendu par: <%=member.lastname%> <%=member.firstname%></p>
+            <p class="card-text">Prix: <%=member.price%>€</p>
+            <p class="card-text">Date de publication: <%=formatedDate%></p>
+            <p class="card-text">Description: <%=member.description%></p>
+            <p class="card-text">Etat du produit: <%=member.state%></p>
+            <a href="/product/<%= member.id  %> " class="btn btn-primary">Voir l'annonce</a>
+        </div>
+    </div>
+    <% } %>
+
+
+
+
+<%- include('./partials/footer'); %>
