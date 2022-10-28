@@ -1,6 +1,7 @@
+<% let cat = locals.localStorageCat %> 
 <body>
   <nav class="navbar navbar-expand-lg bg-white">
-    <div class="container-fluid">
+    <div class="container-fluid ps-0">
       <a class="navbar-brand" href="/">
         <img src="/img/leboncoup.png" alt="Icone du site">
       </a>
@@ -10,23 +11,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class=" btnAdd nav-link" aria-current="page" href="#">Déposer une annonce</a>
+            <a class="btnAdd nav-link mx-auto" aria-current="page" href="/ajout_produit">Déposer une annonce</a>
           </li>
-          <form class="d-flex ps-2" role="search">
-            <input class="bgInputSearch form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+          <form class="d-flex" role="search">
+            <input class="bgInputSearch form-control mx-auto " type="search" placeholder="Rechercher" aria-label="Search">
           </form>
         </ul>
-          <a class="nav-link pe-3 d-flex flex-column align-items-center text-dark" href="#">
+          <a class="nav-link pe-0 d-flex flex-column align-items-center text-dark" href="#">
             <img class="iconNav" src="/img/icon/bell-solid.svg" alt="icone">
             Recherches
           </a>
 
-          <a class="nav-link pe-3 mt-1 d-flex flex-column align-items-center text-dark" href="/favorite">
+          <a class="nav-link pe-0 mt-1 d-flex flex-column align-items-center text-dark" href="/favorite">
             <img class="iconNav" src="/img/icon/heart-solid.svg" alt="icone">
             Favoris
           </a>
 
-          <a class="nav-link pe-3 d-flex flex-column align-items-center text-dark" href="/formConnect">
+          <a class="nav-link pe-0 d-flex flex-column align-items-center text-dark" href="/formConnect">
             <img class="iconNav" src="/img/icon/user-solid.svg" alt="icone">
             Connexion
           </a>
@@ -34,18 +35,24 @@
     </div>
   </nav>
   <nav class="navbar navbar-expand-lg navItemCat p-3">
-    <div class="container-fluid">
+    <div class="container-fluid navbarDesktop">
       <ul class="w-100 navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-around">
-        <li>Immo</li>
-        <li>Véhicules</li>
-        <li>Vacances</li>
-        <li>Emploi</li>
-        <li>Mode</li>
-        <li>Multimédia</li>
-        <li>Loisirs</li>
-        <li>Maison</li>
-        <li>Matériels</li>
-        <li>Autres</li>
+        <% for (let i = 0; i < cat.length; i++) { %>
+          <a class="linkCat" href="/cat/<%= cat[i].id %> ">
+            <li><%= cat[i].name %> </li>
+          </a>
+      <% } %> 
       </ul>
     </div>
+
+    <select class="form-select navbarMobile" aria-label="Categories">
+      <option selected>Categorie</option>
+      <% for (let i = 0; i < cat.length; i++) { %>
+        <option value="<%= cat[i].id %>">
+          <a class="linkCat" href="/cat/<%= cat[i].id %> ">
+            <li><%= cat[i].name %> </li>
+          </a>
+        </option>
+      <% } %>
+    </select>
   </nav>

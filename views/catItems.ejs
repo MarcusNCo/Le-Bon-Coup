@@ -1,0 +1,24 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+
+Categorie: <%= oneCat[0].name %> 
+
+<% for (let i = 0; i < oneCat.length; i++) { %>
+    <%  let formatedDate = new Date(oneCat[i].advert_date)
+    let options = {weekday: "long", year: "numeric", month: "long", day: "2-digit"};
+    formatedDate = formatedDate.toLocaleDateString("fr-FR", options)
+    %>
+        <title><%= oneCat[i].title %> </title>
+        <img src="<%= oneCat[i].img_product %>" alt="image produit">
+        <p class="card-text"><%=oneCat[i].place%></p>
+        <p class="card-text">Vendu par: <%=oneCat[i].lastname%> <%=oneCat[i].firstname%></p>
+        <p class="card-text">Prix: <%=oneCat[i].price%>€</p>
+        <p class="card-text">Date de publication: <%=formatedDate%></p>
+        <p class="card-text">Description: <%=oneCat[i].description%></p>
+        <p class="card-text">Etat du produit: <%=oneCat[i].state%></p>
+<% } %> 
+
+<%- include('./partials/footer'); %>
+

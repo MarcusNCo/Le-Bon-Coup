@@ -1,0 +1,105 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+<main>
+    <div class="container-fluid containerAddProductSS">
+        <div class="container formAddProductSS">
+            <form action="/ajout_produit" method="POST" enctype="multipart/form-data" class="was-validated">
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Nom du produit</label>
+                    <input type="text" class="form-control" id="validationCustom01" name="title" required>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorTitle != 'undefined') {%>
+                        <%=errorSignUpTitle %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Catégorie</label>
+                    <select class="form-select" name="category" aria-label="Default select example" required>
+                        <option value="" selected>Choisir la catégorie de l'objet</option>
+                        <option value="1">Immobilier</option>
+                        <option value="2">Véhicules</option>
+                        <option value="3">Vacances</option>
+                        <option value="4">Emploi</option>
+                        <option value="5">Mode</option>
+                        <option value="6">Maison</option>
+                        <option value="7">Multimédia</option>
+                        <option value="8">Loisirs</option>
+                        <option value="9">Matériel professionnel</option>
+                        <option value="10">Autres</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorCategory != 'undefined') {%>
+                        <%=errorCategory %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Etat de l'objet</label>
+                    <select class="form-select" name="state" aria-label="Default select example" required>
+                        <option value="" selected>Choisir l'état de l'objet</option>
+                        <option value="1">Neuf</option>
+                        <option value="2">Comme neuf</option>
+                        <option value="3">Bon état</option>
+                        <option value="4">satisfaisant</option>
+                        <option value="5">Mauvais état</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorState != 'undefined') {%>
+                        <%=errorState %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Choisir une image</label>
+                    <input type="file" class="form-control" name="image" placeholder="" aria-describedby="fileHelpId" accept="image/*" required>
+                    <div id="fileHelpId" class="form-text">Seulement les fichiers en .jpg ou .png sont acceptés. Limite de taille : 2Mo.</div>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorDescription != 'undefined') {%>
+                        <%=errorDescription %>
+                        <%}%>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="validationCustom02" class="form-label">Lieux de vente (Amiens, Somme, ... )</label>
+                    <input type="text" class="form-control" id="validationCustom02" name="place" required>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorPlace != 'undefined') {%>
+                        <%=errorPlace %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPrice" class="form-label">Prix</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" min="0" required>
+                        <span class="input-group-text">€</span>
+                    </div>
+                    <div class="invalid-feedback">
+                        <%if(typeof errorPrice != 'undefined') {%>
+                        <%=errorPrice %>
+                        <%}%>
+                    </div>
+                </div>
+
+                <div class="mb-3 d-flex justify-content-center">
+                    <button type="submit" class="btn btnSS">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/footer'); %>
