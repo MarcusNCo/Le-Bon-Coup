@@ -17,4 +17,9 @@
 .navItemCat {
     background-color: #00656F;
     color: white;
+    text-decoration: none;
+}
+.navItemCat a {
+    color: white;
+    text-decoration: none;
 }
