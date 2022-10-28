@@ -9,8 +9,13 @@
                 <div class="col ">
                     <div class=" mx-auto card mt-5 shadow p-3 mb-5 bg-body rounded borderCard">
                         <div class="card-body text-center">
-                            <img class="w-100" src="<%=product.img_product%>" alt="Image du produit">
-                        </div>
+                            <img    class="w-100"
+                                    id="imgProd"
+                                    src="/img/rolling.jpg"
+                                    alt="Image du produit">
+                        </div> 
+                        <!-- src="<%=product.img_product%>"  -->
+
                         <div class="card-body">
                             <h5 class="card-title text-center"><%=product.title%></h5>
                             <p class="card-text"> <span class="cardStyle">Lieu:</span> <%=product.place%></p>

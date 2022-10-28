@@ -8,11 +8,18 @@ main{
     border-color: #00656f;
     border-width: 3px;
     margin: auto;
+    box-shadow: 5px 5px 5px white;
+    width: 80%;
 }
 
 .sendCard{
-    width: 50%;
+    width: 80%;
 }
+
+/* #imgProd{
+    object-fit:cover;
+    width: 50%;
+} */
 
 h5{
     font-size: xx-large;
@@ -59,9 +66,8 @@ h5{
 
 @media only screen and (min-width: 768px) {
     .borderCard{
-        border-color: #00656f;
-        border-width: 5px;
-        width: 70%;
+        border-width: 4px;
+        width: 40%;
     }
 
     .sendCard{

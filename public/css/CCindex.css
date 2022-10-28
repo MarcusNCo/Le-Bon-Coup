@@ -6,8 +6,11 @@ main{
 
 .indexCard{
     border-color: #00656f;
-    border-width: 6px;
+    border-width: 3px;
+    box-shadow: 5px 5px 5px white;
     margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .sendCard{
@@ -44,19 +47,14 @@ h5{
     color:#00656f;
 }
 
-/* ------------------------------------ */
+/* ------------------------------------- */
 
 /* --------------Ecran de PC------------ */
 
 @media only screen and (min-width: 768px) {
-    .indexCard{
-        border-color: #00656f;
-        border-width: 8px;
-    }
+    
 
-    .sendCard{
-        width: 40%;
-    }
+    
 }
 
-/* ------------------------------------ */
+/* ------------------------------------- */

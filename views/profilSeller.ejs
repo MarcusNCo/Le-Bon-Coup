@@ -2,9 +2,29 @@
 
 <%- include('./partials/header'); %>
 
-<h2>Profil</h2>
-<p><%= member.lastname %></p>
+<main>
+    <section class="profile">
+        <div class="container-fluid text-center">
+            <div class="row d-flex welcome">
+                <h2>Bonjour, <%= member.lastname %> </h2>
+            </div>
+            <div class="row btnSeller">
+                <div class="col-6 col-lg-3 ">
+                    <a href="/announces/<%= member.id %>" class="btn btn-primary btnSee">Mes annonces</a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a class="btn btn-primary btnSee">Mes favoris</a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a class="btn btn-primary btnSee">Mes achats</a>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <a class="btn btn-primary btnSee">Non disponible</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
-<h3>annonces</h3>
 
 <%- include('./partials/footer'); %>

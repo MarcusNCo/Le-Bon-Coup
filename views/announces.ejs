@@ -1,0 +1,32 @@
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+<main>
+    <section class="home">
+        <div class="listProduct">
+            <div class="row d-flex m-2 mt-4 ">
+
+                <% for (let i = 0; i < membersProducts.length; i++) { %>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 announces">
+                    <p><%= membersProducts[i].title %></p>
+                    <p><%= membersProducts[i].place %></p>
+                    <p><%= membersProducts[i].lastname %></p>
+                    <p><%= membersProducts[i].firstname %></p>
+                    <p><%= membersProducts[i].price %> €</p>
+                    <p><%= membersProducts[i].description %></p>
+                    <p><%= membersProducts[i].state %></p>
+                </div>
+
+
+                <%}%>
+        </div>
+            </div>
+        </div>
+        
+    </section>
+</main>
+
+
+
+<%- include('./partials/footer'); %>

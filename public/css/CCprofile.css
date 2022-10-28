@@ -1,0 +1,29 @@
+/* --------------Tout écran------------ */
+
+.profile{
+    background-color:#7FB1B6;
+    color: white;
+}
+
+.welcome{
+    padding-top: 30px;
+    font-style: italic;
+    font-weight: 800;
+    font-size: larger;
+}
+
+.btnSeller{
+    padding: 30px;
+}
+
+/* ------------------------------------- */
+
+/* --------------Ecran de PC------------ */
+
+@media only screen and (min-width: 768px) {
+    
+
+    
+}
+
+/* ------------------------------------- */
