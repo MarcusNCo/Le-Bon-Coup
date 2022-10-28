@@ -65,14 +65,14 @@ exports.favorite = (req, res) => {
       const result = sequelize.query(sql, { type: Sequelize.QueryTypes.DELETE })
 
       result.then((data) => {
-        res.send(data)
+        res.send({ result: 'deleted' })
       })
     } else {
       const sql = `INSERT INTO favorites (member_id, product_id) VALUES ('${userId}', '${idAnnounce}')`
       const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
 
       result.then((data) => {
-        res.send(data)
+        res.send({ result: data })
       })
     }
   })
