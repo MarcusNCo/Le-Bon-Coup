@@ -49,4 +49,6 @@ routes.get(`/favorite`, (req, res) => {
 
 routes.post('/', favorite)
 
+routes.get(`/cat/:id`, productController.getProductCatById);
+
 module.exports = routes

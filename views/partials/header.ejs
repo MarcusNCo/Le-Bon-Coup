@@ -1,3 +1,4 @@
+<% let cat = locals.localStorageCat %> 
 <body>
   <nav class="navbar navbar-expand-lg bg-white">
     <div class="container-fluid ps-0">
@@ -36,16 +37,11 @@
   <nav class="navbar navbar-expand-lg navItemCat p-3">
     <div class="container-fluid navbarDesktop">
       <ul class="w-100 navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-around">
-        <li>Immo</li>
-        <li>Véhicules</li>
-        <li>Vacances</li>
-        <li>Emploi</li>
-        <li>Mode</li>
-        <li>Multimédia</li>
-        <li>Loisirs</li>
-        <li>Maison</li>
-        <li>Matériels</li>
-        <li>Autres</li>
+        <% for (let i = 0; i < cat.length; i++) { %>
+          <a class="linkCat" href="/cat/<%= cat[i].id %> ">
+            <li><%= cat[i].name %> </li>
+          </a>
+      <% } %> 
       </ul>
     </div>
 
