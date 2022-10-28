@@ -24,15 +24,10 @@ body {
     margin: 20px 0 20px 0;
 }
 
-footer {
-    margin-top: auto;
-}
-
 @media (min-width: 768px) {
     .containerAddProductSS {
         min-height: calc(100vh - 210px);
         max-height: fit-content;
-        /* margin: unset; */
     }
 
     .formAddProductSS {
@@ -63,4 +58,51 @@ footer {
 .btnSendMsg:hover {
     border: 1px solid black;
     color: #00656F;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.footerMobileSS {
+    display: block;
+    height: 200px;
+    background-color: #00656F;
+    color: white;
+}
+
+.footerDesktopSS {
+    display: none;
+    height: 100px;
+    background-color: #00656F;
+    color: white;
+}
+
+.footerMobileSS img, .footerDesktopSS img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    filter: invert(100%) sepia(31%) saturate(2%) hue-rotate(226deg) brightness(107%) contrast(100%);
+}
+
+.footerDesktopSS .col-3:first-of-type {
+    font-size: 0.9em;
+}
+
+.footerDesktopSS ul {
+    font-size: 0.9em;
+}
+
+.footerDesktopSS ul li, .footerMobileSS ul li {
+    list-style-type: none; 
+}
+
+@media (min-width: 768px) {
+    .footerMobileSS {
+        display: none;
+    }
+
+    .footerDesktopSS {
+        display: block;
+    }
 }
