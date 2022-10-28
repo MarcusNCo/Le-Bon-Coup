@@ -1,1 +1,44 @@
-test
+<%- include('./partials/head'); %>
+
+<%- include('./partials/header'); %>
+
+
+<%  for (let i = 0; i < favoriteArray.length; i++) { %>
+    <p><%= favoriteArray[i].title %> </p>
+
+    <main>
+        <section class="oneProduct">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class=" mx-auto card mt-5 shadow p-3 mb-5 bg-body rounded">
+                            <div class="card-body text-center">
+                                <img class="w-100" src="<%=favoriteArray[i].img_product%>" alt="Image du produit">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><%=favoriteArray[i].title%></h5>
+                                <p class="card-text"><%=favoriteArray[i].place%></p>
+                                <p class="card-text">Prix: <%=favoriteArray[i].price%>€</p>
+                                <p class="card-text">Date de publication: <%=favoriteArray[i].advert_date%></p>
+                                <p class="card-text">Description: <%=favoriteArray[i].description%></p>
+                                <p class="card-text">Etat du produit: <%=favoriteArray[i].state%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mt-5" style="width: 18rem;">
+                            <div class="card-body">
+                                <a href="/profil/<%=favoriteArray[i].id_members%>"><%=favoriteArray[i].lastname%></a>
+                                <a href="" class="btn btnBuy">Acheter</a>
+                                <a href="" class="btn btnSendMsg">Message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+<%  } %>
+
+<%- include('./partials/footer'); %>

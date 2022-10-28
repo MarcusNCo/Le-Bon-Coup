@@ -89,3 +89,16 @@ exports.favoriteUser = (req, res) => {
     res.send(data)
   })
 }
+
+exports.getAllFav = (req, res) => {
+  localStorage = new LocalStorage('./scratch')
+  const userId = localStorage.getItem('connected')
+  const query = `SELECT * FROM favorites JOIN products ON products.id = favorites.product_id WHERE member_id = ${userId}`
+  const data = sequelize.query(query, {
+    type: Sequelize.QueryTypes.SELECT,
+  })
+  data.then((data) => {
+    console.log(data)
+    res.render('favorites', { favoriteArray: data })
+  })
+}
