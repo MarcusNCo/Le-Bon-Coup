@@ -47,16 +47,12 @@
 
     <select class="form-select navbarMobile" aria-label="Categories">
       <option selected>Categorie</option>
-      <option value="1"><a class="linkCat"><li>Immo</li></a></option>
-      <option value="1"><a class="linkCat"><li>Véhicules</li></a></option>
-      <option value="1"><a class="linkCat"><li>Vacances</li></a></option>
-      <option value="1"><a class="linkCat"><li>Emploi</li></a></option>
-      <option value="1"><a class="linkCat"><li>Mode</li></a></option>
-      <option value="1"><a class="linkCat"><li>Multimédia</li></a></option>
-      <option value="1"><a class="linkCat"><li>Loisirs</li></a></option>
-      <option value="1"><a class="linkCat"><li>Maison</li></a></option>
-      <option value="1"><a class="linkCat"><li>Matériels</li></a></option>
-      <option value="1"><a class="linkCat"><li>Autres</li></a></option>
+      <% for (let i = 0; i < cat.length; i++) { %>
+        <option value="<%= cat[i].id %>">
+          <a class="linkCat" href="/cat/<%= cat[i].id %> ">
+            <li><%= cat[i].name %> </li>
+          </a>
+        </option>
+      <% } %>
     </select>
-
   </nav>

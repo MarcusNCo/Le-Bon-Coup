@@ -3,6 +3,7 @@ const routes = require('./routes/routes.js')
 const { fileURLToPath } = require('url')
 const path = require('path')
 const app = express();
+const {LocalStorage} = require('node-localstorage')
 
 app.use(
   express.urlencoded({
@@ -10,8 +11,6 @@ app.use(
   }),
 )
 const PORT = process.env.PORT || 8082
-
-
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }));
