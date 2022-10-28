@@ -20,6 +20,7 @@ app.set('views', 'views')
 app.use('/', routes)
 const localStorage = new LocalStorage('./scratch');
 app.locals.localStorageCat = JSON.parse(localStorage.getItem('cat'));
+app.locals.localStorageUser = JSON.parse(localStorage.getItem('connected'));
 
 app.listen(PORT, () => {
   console.log('Notre server est en marche sur, ', PORT)

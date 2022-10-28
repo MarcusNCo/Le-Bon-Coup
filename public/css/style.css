@@ -117,3 +117,8 @@ footer {
     height: 30px;
     filter: invert(32%) sepia(23%) saturate(1805%) hue-rotate(138deg) brightness(91%) contrast(101%);
 }
+
+.imgProfil {
+    width: 50% !important;
+    text-align: start;
+}
