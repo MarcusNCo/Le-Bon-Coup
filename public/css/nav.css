@@ -35,7 +35,29 @@
     color: white;
 }
 
-@media (min-width: 768px) {
+.navbar select {
+    background-color: #00656F;
+    color: white;
+}
+@media (max-width: 992px) {
+    .navbarMobile {
+        display: block !important;
+    }
+
+    .navbarDesktop {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbarMobile {
+        display: none !important;
+    }
+
+    .navbarDesktop {
+        display: block !important;
+    }
+
     .btnAdd {
         height: 80%;
         width: 100%;
