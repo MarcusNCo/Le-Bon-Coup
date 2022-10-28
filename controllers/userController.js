@@ -54,11 +54,38 @@ exports.signUpUser = (req, res) => {
 exports.favorite = (req, res) => {
   localStorage = new LocalStorage('./scratch')
   const userId = localStorage.getItem('connected')
-  console.log(userId)
-  const sql = `INSERT INTO favorites (member_id, product_id) VALUES ('${userId}', '${req.body.product_id}')`
-  const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
+  const idAnnounce = req.params.idAnnounce
+  const isCheckedSql = `SELECT * FROM favorites WHERE member_id = ${userId} AND product_id = ${idAnnounce}`
+  const isChecked = sequelize.query(isCheckedSql, {
+    type: Sequelize.QueryTypes.SELECT,
+  })
+  isChecked.then((data) => {
+    if (data.length != 0) {
+      const sql = `DELETE from favorites WHERE member_id = ${userId} AND product_id = ${idAnnounce}`
+      const result = sequelize.query(sql, { type: Sequelize.QueryTypes.DELETE })
 
+      result.then((data) => {
+        res.send(data)
+      })
+    } else {
+      const sql = `INSERT INTO favorites (member_id, product_id) VALUES ('${userId}', '${idAnnounce}')`
+      const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
+
+      result.then((data) => {
+        res.send(data)
+      })
+    }
+  })
+}
+
+exports.favoriteUser = (req, res) => {
+  localStorage = new LocalStorage('./scratch')
+  const userId = localStorage.getItem('connected')
+  const sql = `SELECT product_id FROM favorites WHERE member_id = ${userId}`
+  const result = sequelize.query(sql, {
+    type: Sequelize.QueryTypes.SELECT,
+  })
   result.then((data) => {
-    res.redirect('/')
+    res.send(data)
   })
 }

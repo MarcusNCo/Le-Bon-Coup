@@ -4,6 +4,7 @@ const {
   connectUser,
   signUpUser,
   favorite,
+  favoriteUser,
 } = require('../controllers/userController.js')
 const {
   validate,
@@ -36,10 +37,8 @@ routes.get(`/product/:id`, productController.getOneById)
 
 routes.get(`/profil/:id`, productController.getUserById)
 
-routes.get(`/favorite`, (req, res) => {
-  res.render('favorites')
-})
+routes.get(`/favorite/:idAnnounce`, favorite)
 
-routes.post('/', favorite)
+routes.get('/getFavUser', favoriteUser)
 
 module.exports = routes

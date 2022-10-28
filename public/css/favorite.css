@@ -1,4 +1,12 @@
-.iconFav, svg {
-    width: 1.25rem;
-    filter: invert(32%) sepia(23%) saturate(1805%) hue-rotate(138deg) brightness(91%) contrast(101%);
+.iconFav {width: 20%;
+    
 }
+.isLike{
+filter: invert(35%) sepia(83%) saturate(4373%) hue-rotate(208deg) brightness(100%) contrast(100%);
+}
+
+.notLike{
+    filter: invert(75%) sepia(83%) saturate(4373%) hue-rotate(208deg) brightness(100%) contrast(50%);
+}
+
+
