@@ -1,5 +1,8 @@
         <footer>
-            <p class="text-center text-muted">© Copyright 2020 The Awesome People</p>
+            <% let formatedDate = new Date()
+            let options = {year: "numeric"};
+            formatedDate = formatedDate.toLocaleDateString("fr-FR", options) %> 
+            <p class="text-center text-muted">© Copyright <%= formatedDate %> Le Bon Coup</p>
         </footer>
     </body>
 </html>

@@ -8,4 +8,6 @@ routes.get(`/product/:id`, productController.getOneById);
 
 routes.get(`/profil/:id`, productController.getUserById);
 
+routes.get(`/cat/:id`, productController.getProductCatById);
+
 module.exports = routes;
