@@ -58,7 +58,7 @@ exports.saveProductToDB = (req, res) => {
   var newPathSave = '/uploads/' + memberId + '/' + fileName;
   fs.rename(oldPath, newPath, function (err) {
     if (err) throw err
-    console.log('Successfully renamed and moved!')
+    // console.log('Successfully renamed and moved!')
   })
   // ----------------------------
 
@@ -67,7 +67,7 @@ exports.saveProductToDB = (req, res) => {
   result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
   result.then((data) => {
     if (data.length != 0) {
-      console.log('Ajout produit ok');
+      // console.log('Ajout produit ok');
       res.redirect('/');
     } 
     else {

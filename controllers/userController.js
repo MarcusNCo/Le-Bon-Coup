@@ -3,7 +3,7 @@ const { LocalStorage } = require('node-localstorage')
 const { Sequelize } = require('sequelize')
 
 exports.connectUser = (req, res) => {
-  console.log(req.errorsFromValidation)
+  // console.log(req.errorsFromValidation)
   localStorage = new LocalStorage('./scratch')
   const sql = `SELECT mail, id, password FROM members WHERE mail = '${req.body.mail}';`
   const result = sequelize.query(sql, { type: Sequelize.QueryTypes.SELECT })
@@ -13,12 +13,12 @@ exports.connectUser = (req, res) => {
         data[0].password == req.body.password &&
         data[0].mail == req.body.mail
       ) {
-        console.log('coucou ca marche')
+        // console.log('coucou ca marche')
         localStorage.setItem('connected', JSON.stringify(data[0].id))
 
         res.redirect('/')
       } else {
-        console.log('connexion echouée')
+        // console.log('connexion echouée')
       }
     } else {
       res.render('formConnect', {
@@ -30,13 +30,13 @@ exports.connectUser = (req, res) => {
 }
 
 exports.signUpUser = (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   const sql = `INSERT INTO members (lastname, firstname,  phone_number, mail, password, address, role) VALUES ('${req.body.lastname}','${req.body.firstname}','${req.body.phone_number}','${req.body.mail}', '${req.body.password}','${req.body.address}', '2' )`
   const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
 
   result.then((data) => {
     if (data.length != 0) {
-      console.log('inscription ok')
+      // console.log('inscription ok')
       res.redirect('/formConnect')
     } else {
       res.render('formSignUp', {
@@ -54,7 +54,7 @@ exports.signUpUser = (req, res) => {
 exports.favorite = (req, res) => {
   localStorage = new LocalStorage('./scratch')
   const userId = localStorage.getItem('connected')
-  console.log(userId)
+  // console.log(userId)
   const sql = `INSERT INTO favorites (member_id, product_id) VALUES ('${userId}', '${req.body.product_id}')`
   const result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
 
