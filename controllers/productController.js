@@ -7,7 +7,7 @@ const { LocalStorage } = require('node-localstorage')
 var fileName = '';
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-      callback(null, './uploads/');
+      callback(null, './public/uploads/');
   },
   filename: function (req, file, callback) {
       fileName = file.originalname;
@@ -48,13 +48,14 @@ exports.saveProductToDB = (req, res) => {
 
   // Move file in right directory 
   var fs = require('fs');
-  var dir = './uploads/' + memberId + '/';
+  var dir = './public/uploads/' + memberId + '/';
   if (!fs.existsSync(dir)){
       fs.mkdirSync(dir);
   }
 
-  var oldPath = './uploads/' + fileName;
+  var oldPath = './public/uploads/' + fileName;
   var newPath = dir + fileName;
+  var newPathSave = '/uploads/' + memberId + '/' + fileName;
   fs.rename(oldPath, newPath, function (err) {
     if (err) throw err
     console.log('Successfully renamed and moved!')
@@ -62,7 +63,7 @@ exports.saveProductToDB = (req, res) => {
   // ----------------------------
 
 
-  sql = `INSERT INTO products (category_id, price, place, description, title, id_members, state, img) VALUES ('${req.body.category}', '${req.body.price}', '${req.body.place}', '${req.body.description}', '${req.body.title}', '${memberId}', '${req.body.state}', '${newPath}');`
+  sql = `INSERT INTO products (category_id, price, place, description, title, id_members, state, img_product) VALUES ('${req.body.category}', '${req.body.price}', '${req.body.place}', '${req.body.description}', '${req.body.title}', '${memberId}', '${req.body.state}', '${newPathSave}');`
   result = sequelize.query(sql, { type: Sequelize.QueryTypes.INSERT })
   result.then((data) => {
     if (data.length != 0) {
